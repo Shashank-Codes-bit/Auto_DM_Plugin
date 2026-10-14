@@ -65,7 +65,7 @@ Meta allows one webhook URL per app. If another app already receives the account
 
 ## Demo data (Plant Store)
 
-`seed/demo.json` holds a demo for [plantstore.live](https://plantstore.live): the brand, a theme matched to their site (cream, forest green, Playfair Display and Inter, pill buttons), 23 real products in 3 reel pages (winter bulbs, blue pottery planters, the collector's shelf). Load it from **Admin → Brand & settings → Load demo data**, or with `npm run seed` while the server is stopped (`-- <id> <id> <id>` to pick reels, `-- --offline` to skip reading the website). By default it uses the 4th–6th newest reels, leaving the 3 newest to the app it shares the account with.
+`seed/demo.json` holds a demo for [plantstore.live](https://plantstore.live): the brand, a theme matched to their site (cream, forest green, Playfair Display and Inter, pill buttons) and 14 real products on 2 reel pages: `finger-lemon` (the “Sabse mehenga nimbu” reel) and `7-creepers`. Each demo reel is found by its caption (`match`), so it never lands on another app's reel. Load it from **Admin → Brand & settings → Load demo data**, or with `npm run seed` while the server is stopped (`-- <id> <id>` to pick reels, `-- --offline` to skip reading the website).
 
 ## Tests
 

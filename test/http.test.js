@@ -186,25 +186,32 @@ test('settings save the brand and look; presets replace only the look', async ()
   }
 });
 
-test('Load demo data sets up Plant Store on the 4th–6th newest reels, using saved details when the site is unreachable', async () => {
+test('Load demo data finds the demo reels by caption, using saved details when the site is unreachable', async () => {
   const ig = fakeIg();
-  const ids = ['600', '500', '400', '300', '200', '100'];
-  ig.listMedia = async () => ({ data: ids.map((id) => ({ id, media_product_type: 'REELS', media_type: 'VIDEO', media_url: `https://cdn.test/${id}.mp4`, thumbnail_url: `https://cdn.test/${id}.jpg` })) });
+  const posts = [['600', 'Finger Lemon'], ['500', '7 Creepers'], ['400', 'Mehta Mart offer'], ['300', 'RIP']];
+  ig.listMedia = async () => ({ data: posts.map(([id, caption]) => ({ id, caption, media_product_type: 'REELS', media_type: 'VIDEO', media_url: `https://cdn.test/${id}.mp4`, thumbnail_url: `https://cdn.test/${id}.jpg` })) });
   const app = await startApp({ ig, net: fakeNet() });
   try {
     const { cookie, csrf } = await login(app.base, { csrfPage: '/admin/settings' });
-    const res = await fetch(`${app.base}/admin/demo-data`, { method: 'POST', headers: { cookie }, body: new URLSearchParams({ _csrf: csrf }), redirect: 'manual' });
-    assert.equal(res.status, 303);
+    const load = () => fetch(`${app.base}/admin/demo-data`, { method: 'POST', headers: { cookie }, body: new URLSearchParams({ _csrf: csrf }), redirect: 'manual' });
+    assert.equal((await load()).status, 303);
     const reels = await app.repos.reels.list();
-    assert.deepEqual(reels.map((r) => r.ig_media_id).sort(), ['100', '200', '300']);
-    assert.equal((await app.repos.links.list()).length, 23);
+    assert.deepEqual(reels.map((r) => `${r.ig_media_id}:${r.slug}`).sort(), ['500:7-creepers', '600:finger-lemon']);
+    assert.equal((await app.repos.links.list()).length, 14);
     const s = await app.repos.settings.getAll();
     assert.equal(s.brand_name, 'Plant Store');
     assert.equal(s.color_bg, '#F7F4EC');
-    const html = await (await fetch(`${app.base}/r/winter-bulbs`)).text();
-    assert.match(html, /Winter bulbs to plant now/);
+    const html = await (await fetch(`${app.base}/r/finger-lemon`)).text();
+    assert.match(html, /Sabse mehenga nimbu/);
+    assert.match(html, /Finger Lemon \(Nimbu\) Grafted Plant/);
     assert.match(html, /Shop all at plantstore.live/);
-    assert.match(html, /<video src="https:\/\/cdn.test\/300.mp4"/);
+    assert.match(html, /<video src="https:\/\/cdn.test\/600.mp4"/);
+
+    // Loading again reuses the products; a missing reel gives a clear message.
+    assert.equal((await load()).status, 303);
+    assert.equal((await app.repos.links.list()).length, 14);
+    ig.listMedia = async () => ({ data: [] });
+    assert.match(await (await load()).text(), /No reel on your Instagram account has “Finger Lemon”/);
   } finally {
     app.close();
   }

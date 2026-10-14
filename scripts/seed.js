@@ -1,6 +1,6 @@
 // Loads the demo in seed/demo.json: brand settings, theme, products and reel pages.
-//   npm run seed                        # uses the reels picked by "skip_newest" in demo.json
-//   npm run seed -- <id> <id> <id>      # choose the Instagram reels yourself
+//   npm run seed                        # finds each demo reel by its caption ("match"), or the newest reels
+//   npm run seed -- <id> <id>           # choose the Instagram reels yourself, in demo order
 //   npm run seed -- --offline           # don't read the website; use the saved product details
 // With the built-in database, stop the server first (only one process can open it).
 import fs from 'node:fs';
@@ -12,13 +12,23 @@ import { previewLink } from '../src/linkService.js';
 
 export const SEED_FILE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../seed/demo.json');
 
-/** The account's reels, newest first, skipping the `skip` newest (those may belong to another app). */
-export async function newestReels(ig, count, { skip = 0 } = {}) {
-  const posts = (await ig.listMedia(50)).data || [];
-  const reels = posts.filter((p) => p.media_product_type === 'REELS' || p.media_type === 'VIDEO').slice(skip, skip + count);
-  if (!reels.length) {
-    throw new ValidationError(`The demo needs at least ${skip + 1} reels on your Instagram account${skip ? ` (the ${skip} newest are left alone)` : ''}.`);
-  }
+/**
+ * The Instagram reels for the demo, in data.reels order. A demo reel with `match` takes the newest reel whose
+ * caption contains that text; the others take the newest reels left, after skipping `skip_newest`.
+ */
+export async function pickReels(ig, data) {
+  const posts = ((await ig.listMedia(50)).data || []).filter((p) => p.media_product_type === 'REELS' || p.media_type === 'VIDEO');
+  const used = new Set();
+  const byCaption = data.reels.map((spec) => {
+    if (!spec.match) return null;
+    const post = posts.find((p) => !used.has(p.id) && (p.caption || '').toLowerCase().includes(spec.match.toLowerCase()));
+    if (!post) throw new ValidationError(`No reel on your Instagram account has “${spec.match}” in its caption. Post it first, or edit seed/demo.json.`);
+    used.add(post.id);
+    return post;
+  });
+  const rest = posts.slice(data.skip_newest || 0).filter((p) => !used.has(p.id));
+  const reels = byCaption.map((post) => post || rest.shift()).filter(Boolean);
+  if (reels.length < data.reels.length) throw new ValidationError(`The demo needs ${data.reels.length} reels on your Instagram account; found ${reels.length}.`);
   return reels;
 }
 
@@ -77,9 +87,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const data = JSON.parse(fs.readFileSync(SEED_FILE, 'utf8'));
   const db = await openDb({ url: config.databaseUrl, dataDir: config.dataDir });
   try {
-    const reels = ids.length
-      ? await Promise.all(ids.map((id) => ig.getMedia(id)))
-      : await newestReels(ig, data.reels.length, { skip: data.skip_newest || 0 });
+    const reels = ids.length ? await Promise.all(ids.map((id) => ig.getMedia(id))) : await pickReels(ig, data);
     const done = await seedDemo({ repos: createRepos(db), offline }, data, reels);
     for (const r of done) console.log(`Reel ${r.id} -> /r/${r.slug} (${r.products} products)`);
   } finally {

@@ -1,7 +1,6 @@
 {
   "version": 1,
-  "description": "Plant Store demo (plantstore.live): sets the brand, the cream-and-forest-green look and 23 real products, and sets up 3 reel pages on your 4th, 5th and 6th newest reels (the 3 newest are left for Mehta Mart). Products are read live from plantstore.live; the saved details below are used if the site can't be reached.",
-  "skip_newest": 3,
+  "description": "Plant Store demo (plantstore.live): sets the brand, the cream-and-forest-green look and 14 real products, and sets up the reels whose captions mention “Finger Lemon” and “Creepers”. Products are read live from plantstore.live; the saved details are used if the site can't be reached.",
   "preset": "plantstore",
   "settings": {
     "brand_name": "Plant Store",
@@ -21,196 +20,124 @@
   },
   "reels": [
     {
-      "slug": "winter-bulbs",
-      "headline": "Winter bulbs to plant now",
-      "subtitle": "Tulips, daffodils and saffron, imported and ready for Indian winters.",
-      "keywords": "BULBS, PLANTS, LINK",
-      "dm_message": "Hey @{username}! 🌷 Here are the bulbs from the reel. Plant them this month for blooms by spring 👇",
-      "button_text": "See the bulbs",
-      "public_reply": "Sent you a DM 🌷",
+      "match": "Finger Lemon",
+      "slug": "finger-lemon",
+      "headline": "Sabse mehenga nimbu: the finger lemon",
+      "subtitle": "The caviar lemon from the reel, plus more lemons that fruit in Indian pots.",
+      "keywords": "NIMBU, LEMON, PLANTS, LINK",
+      "dm_message": "Hey @{username}! 🍋 Here's the finger lemon from the reel, and a few more lemons we love 👇",
+      "button_text": "See the lemons",
+      "public_reply": "Sent you a DM 🍋",
       "links": [
         {
-          "url": "https://plantstore.live/products/imported-saffron-bulbs",
-          "title": "Saffron - Imported Bulbs",
-          "price": "1195",
-          "mrp": "2000",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/2_0fe385d1-1da6-46ee-bf2f-143d7ac7a3a2.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/dutch-tulip-pink-impression-flowering-bulbs-netherlands-imported",
-          "title": "Dutch Tulip Pink Impression Flowering Bulbs (Netherland Imported)",
-          "price": "1095",
-          "mrp": "1595",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/4_09bcfc7f-962f-430f-afef-98f9abcc195f.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/dutch-tulip-royal-virgin-flowering-bulbs-netherlands-imported",
-          "title": "Dutch Tulip Royal Virgin Flowering Bulbs (Netherland Imported)",
-          "price": "1095",
-          "mrp": "1595",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_d8fa4fa4-1214-4aae-8e4e-225d81ac86b8.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/dutch-tulip-red-impression-flowering-bulbs-netherlands-imported",
-          "title": "Dutch Tulip Red Impression Flowering Bulbs (Netherland Imported)",
-          "price": "1095",
-          "mrp": "1595",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_7f62f496-6ad1-4cd4-b615-4ded8a9058c7.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/dutch-tulip-librije-flowering-bulbs-netherlands-imported",
-          "title": "Dutch Tulip Librije Flowering Bulbs (Netherland Imported)",
-          "price": "1095",
-          "mrp": "1595",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_d2890963-2b96-4879-a0b8-5239a0bb5d70.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/daffodils-tahiti-double-petal-bulbs-imported",
-          "title": "Daffodils - Tahiti Double Petal (Imported)",
-          "price": "1195",
-          "mrp": "2295",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/3_44765ab3-b4f3-4525-9521-3c2af68050cd.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/daffodils-jet-fire-double-petal-bulbs-imported",
-          "title": "Daffodils - Jet Fire Double Petal (Imported)",
-          "price": "1195",
-          "mrp": "2295",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/2_21327e1c-8f3b-468b-a1cd-0b27ad9a3c65.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/daffodils-abba-double-petal-bulbs-imported",
-          "title": "Daffodils - Abba Double petal (Imported)",
-          "price": "1195",
-          "mrp": "2295",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_a0fa4dcf-b493-4eb6-ad97-d6ad6b0b05ae.jpg?width=800"
-        }
-      ]
-    },
-    {
-      "slug": "blue-pottery",
-      "headline": "Jaipur blue pottery for your plants",
-      "subtitle": "Hand-painted planters that make any balcony look loved.",
-      "keywords": "POTS, PLANTS, LINK",
-      "dm_message": "Hey @{username}! 🪴 Here are the planters from the reel 👇",
-      "button_text": "See the planters",
-      "public_reply": "Check your DMs 🪴",
-      "links": [
-        {
-          "url": "https://plantstore.live/products/set-of-3-assorted-blue-pottery-planters-yellow-indigo-light-blue-4-5x3-75-inches",
-          "title": "Set of 3 Assorted Blue Pottery Planters (Yellow, Indigo & Light Blue, 4.5x3.75 Inches)",
-          "price": "2499",
-          "mrp": "2745",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/set-of-3-blue-pottery-planters-yellow-indigo-light-blue.webp?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/jaipur-blue-pottery-floral-planter-indigo-white-4-5-x-3-75-inches",
-          "title": "Jaipur Blue Pottery Floral Planter Indigo & White, 4.5 x 3.75 Inches",
-          "price": "999",
-          "mrp": "1095",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/indigo-white-blue-pottery-planter-balcony.webp?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/yellow-blue-bell-shaped-blue-pottery-planter-4-5-x-3-75-inches",
-          "title": "Yellow & Blue Bell Shaped Blue Pottery Planter 4.5 x 3.75 Inches",
-          "price": "999",
-          "mrp": "1095",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/yellow-blue-jaipur-blue-pottery-planter-balcony.webp?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/set-of-2-conical-ceramic-planters-yellow-light-blue",
-          "title": "Set of 2 Conical Ceramic Planters Yellow & Light Blue",
-          "price": "1499",
-          "mrp": "1645",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/set-of-2-conical-blue-pottery-planters-yellow-light-blue.webp?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/yellow-floral-ceramic-wall-planter-set-of-2",
-          "title": "Yellow Floral Ceramic Wall Planter - Set of 2",
-          "price": "1845",
-          "mrp": "2045",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/yellow-floral-ceramic-wall-planter-lifestyle.webp?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/noir-curve-black-planter",
-          "title": "Noir Curve Planter",
-          "price": "795",
-          "mrp": "1500",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/download_3.png?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/aesthetic-planter",
-          "title": "Aesthetic Planter",
-          "price": "795",
-          "mrp": "1495",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/pot6.png?width=800"
-        }
-      ]
-    },
-    {
-      "slug": "collectors-shelf",
-      "headline": "The collector's shelf",
-      "subtitle": "Rare lotus, Thai Constellation and show-stopping hibiscus.",
-      "keywords": "RARE, PLANTS, LINK",
-      "dm_message": "Hey @{username}! 🌸 Here's everything from the collector's shelf 👇",
-      "button_text": "Shop the shelf",
-      "public_reply": "Sent you a DM 🌸",
-      "links": [
-        {
-          "url": "https://plantstore.live/products/monstera-thai-constellation",
-          "title": "Monstera 'Thai Constellation'",
-          "price": "2900",
-          "mrp": "5800",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/q3FAyonC.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/mini-jihe-micro-lotus-tuber",
-          "title": "Mini Jihe Lotus Tuber",
-          "price": "2295",
-          "mrp": "3500",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/lady-bug-mini-endless-flowers-lotus-bare-root-pond-plants.webp?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/vanilla-ketchup-lotus-tuber",
-          "title": "Vanilla Ketchup Lotus Tuber",
-          "price": "1995",
-          "mrp": "3500",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/golden-autumn-lotus-bare-root-play-it-koi-6.webp?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/kudamulla-mini-bowl-lotus-tuber",
-          "title": "Kudamulla Mini Bowl Lotus Tuber",
-          "price": "1995",
-          "mrp": "3500",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/white-phoenix-lotus-bare-root-play-it-koi-1.webp?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/paneer-rose-lotus-tuber",
-          "title": "Paneer Rose Lotus Tuber",
-          "price": "1595",
-          "mrp": "3500",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_57b40aab-f734-4a1b-a8e8-6866cbef2392.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/tahitian-dragons-lair-hibiscus-flower-plant",
-          "title": "Tahitian Dragons Lair Hibiscus Flower Plant",
-          "price": "2795",
-          "mrp": "4995",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/3_87b77ecc-5d19-4532-9843-b3c769c1b7bf.jpg?width=800"
-        },
-        {
-          "url": "https://plantstore.live/products/peeter-black-magic-hibiscus-plant",
-          "title": "Peter Black Magic Hibiscus Plant",
+          "url": "https://plantstore.live/products/finger-lemon-grafted-tree",
+          "title": "Finger Lemon (Nimbu) Grafted Plant",
           "price": "1895",
           "mrp": "2500",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/3_9b4172be-0048-4e61-9cae-d4d1f3374ba1.jpg?width=800"
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/images_ef610274-7067-4d2e-ae35-381f39ab9eb9.jpg?width=800"
         },
         {
-          "url": "https://plantstore.live/products/princess-kaiulani-hibiscus-plant",
-          "title": "Princess Kaiulani Hibiscus",
+          "url": "https://plantstore.live/products/the-ultimate-lemon-collection",
+          "title": "The Ultimate Lemon Collection",
+          "price": "2695",
+          "mrp": "6000",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/photo-collage_png_dc5f4517-4134-4a8c-aaba-2e45a8bdaa3b.png?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/gandhraj-lemon-grafted-tree",
+          "title": "Gandharaj Lemon (Nimbu) Grafted Tree",
+          "price": "1795",
+          "mrp": "3295",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_6cb382fa-4d22-4fd0-970b-c3e95a234aea.jpg?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/lemon-variegated-grafted-tree",
+          "title": "Lemon (Nimbu) Variegated Grafted Tree",
           "price": "1995",
           "mrp": "2500",
-          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/2_5bce97a0-107e-4cf4-b0b1-181a913fda01.jpg?width=800"
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_6acc8057-d4d7-4570-957b-94fdca52e37d.jpg?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/red-pati-lemon-grafted-tree",
+          "title": "Red Pati Lemon (Nimbu) Grafted Tree",
+          "price": "1995",
+          "mrp": "2495",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/51rqGa5Bf3L._AC_UF1000_1000_QL80.jpg?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/sweet-lemon-grafted-tree",
+          "title": "Sweet Lemon (Nimbu) Grafted Plant",
+          "price": "1995",
+          "mrp": "2295",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/sweet_lemon.jpg?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/all-time-kagzi-lemon-grafted-plant",
+          "title": "All Time (Baramasi) Kagzi Lemon (Nimbu) Grafted Plant",
+          "price": "1595",
+          "mrp": "1895",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/kagzilemon.png?width=800"
+        }
+      ]
+    },
+    {
+      "match": "Creepers",
+      "slug": "7-creepers",
+      "headline": "7 creepers for a green wall",
+      "subtitle": "Flowering vines and creepers from the reel, grown on our own farms.",
+      "keywords": "CREEPER, CREEPERS, PLANTS, LINK",
+      "dm_message": "Hey @{username}! 🌿 Here are the creepers from the reel 👇",
+      "button_text": "See the creepers",
+      "public_reply": "Check your DMs 🌿",
+      "links": [
+        {
+          "url": "https://plantstore.live/products/juhi-jasmine-flowering-vine",
+          "title": "Juhi (Jasmine) Flowering Vine",
+          "price": "1595",
+          "mrp": "2500",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/ChatGPTImageAug13_2026_03_58_51PM.png?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/madhu-malti-double-petal-flowering-plant",
+          "title": "Madhu Malti Double Petal Flowering Plant",
+          "price": "1295",
+          "mrp": "1895",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_3530adfc-9b4c-4b2e-85ad-2f4e78b27b40.jpg?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/allamanda-plant",
+          "title": "Allamanda Plant",
+          "price": "1495",
+          "mrp": "2500",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/2_5dff24cb-6e66-4474-93fa-247112ed75ac.jpg?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/japanese-wisteria-plant",
+          "title": "Japanese Wisteria Plant",
+          "price": "2495",
+          "mrp": "5500",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/ChineseWisteriaPurpleRareFragrantFloweringLivePlant-Seed2Plant-4.webp?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/curtain-creeper-plant",
+          "title": "Curtain Creeper",
+          "price": "1295",
+          "mrp": "2500",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/ChatGPTImageAug11_2026_05_50_57PM.png?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/chain-of-glory-plant",
+          "title": "Chain of Glory Plant",
+          "price": "1695",
+          "mrp": "2500",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_c21f6027-32e0-4f8e-adc5-ff4b6d445b7b.jpg?width=800"
+        },
+        {
+          "url": "https://plantstore.live/products/sandpaper-vine-plant",
+          "title": "Sandpaper Vine Plant",
+          "price": "1495",
+          "mrp": "2500",
+          "image_url": "https://cdn.shopify.com/s/files/1/0679/2288/6891/files/1_646b80af-7684-4eba-b875-ee6de40aab46.jpg?width=800"
         }
       ]
     }

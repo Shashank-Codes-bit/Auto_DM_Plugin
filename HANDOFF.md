@@ -12,9 +12,8 @@ It grew out of [Auto_DM](https://github.com/Shashank-Codes-bit/Auto_DM) (branch 
 
 - [plantstore.live](https://plantstore.live) is a Shopify store, so products fill in exactly from `/products/<handle>.json`.
 - Their look: background `#F7F4EC`, text `#1D2A20`, primary `#234D33`, Playfair Display headings over Inter, pill buttons, 18px card corners, a green announcement strip. This is the `plantstore` preset in `src/themes.js`.
-- `seed/demo.json`: brand settings, 23 products, 3 reel pages (`winter-bulbs`, `blue-pottery`, `collectors-shelf`) with keywords `BULBS` / `POTS` / `RARE`, plus `PLANTS` and `LINK` on all three.
+- `seed/demo.json`: brand settings and 14 products on 2 reel pages, matched to the Plant Store reels posted on the test account: `finger-lemon` (caption “Finger Lemon”, keywords `NIMBU`, `LEMON`, `PLANTS`, `LINK`) and `7-creepers` (caption “7 Creepers”, keywords `CREEPER`, `CREEPERS`, `PLANTS`, `LINK`). Reels are found by caption. Product order is a best guess; reorder in Admin → Reels to match the video.
 - It runs on the same Instagram account and Meta app as the Mehta Mart store. Meta's webhook still points at Mehta Mart, which passes on comments on reels it doesn't use (`FORWARD_WEBHOOK_URL`) and redirects `/l/<slug>` to this app (`PLUGIN_URL`). This app's `DM_LINK_BASE` is the Mehta Mart address, so DMs show the Mehta Mart URL.
-- The demo uses the 4th–6th newest reels; the 3 newest belong to Mehta Mart. Post 2–3 plant reels on the test account for a convincing pitch.
 
 ## Code map
 

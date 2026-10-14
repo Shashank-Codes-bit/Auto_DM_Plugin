@@ -5,7 +5,7 @@ import { PRESETS, THEME_KEYS, cleanTheme } from '../themes.js';
 import { SETTING_DEFAULTS } from '../repos/settings.js';
 import { UnfurlError } from '../unfurl.js';
 import { checkLink, previewLink } from '../linkService.js';
-import { SEED_FILE, newestReels, seedDemo } from '../../scripts/seed.js';
+import { SEED_FILE, pickReels, seedDemo } from '../../scripts/seed.js';
 import {
   activityPage, adminLayout, dashboardPage, linkFormPage, linkValues, linksPage, reelFormPage, reelValues, reelsPage, settingsPage,
 } from '../views/admin.js';
@@ -333,7 +333,7 @@ export function adminRoutes({ db, repos, ig, auth, config, net = {} }) {
   r.post('/demo-data', async (req, res) => {
     try {
       const data = JSON.parse(fs.readFileSync(SEED_FILE, 'utf8'));
-      const reels = await newestReels(ig, data.reels.length, { skip: data.skip_newest || 0 });
+      const reels = await pickReels(ig, data);
       await seedDemo({ repos, net }, data, reels);
       res.redirect(303, '/admin/reels?ok=demo');
     } catch (err) {
