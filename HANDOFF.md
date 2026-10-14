@@ -228,11 +228,10 @@ Instagram can't deliver webhooks to localhost, so live DMs need the VM.
   - The demo was re-mapped to the two real Plant Store reels (Finger Lemon, 7 Creepers), found by caption.
   - Deployed to the VM: Caddy site, demo loaded, Mehta Mart updated and restarted.
   - Verified the DM link redirect, the reel page, product click-out with UTMs, and a signed test comment passed from Mehta Mart to the plugin.
-  - **Still to do:** a real comment from `_squenza`.
+  - Real comments confirmed end to end: `_squenza` and `udyanojha` got DMs on both reels (Mehta Mart passed them on, the plugin sent the DMs).
 
 ## 10. Known gaps and next steps
 
-- **Real end-to-end test:** comment `NIMBU` / `CREEPERS` from `_squenza` and confirm the DM arrives.
 - **Token refresh:** both apps share one long-lived token (60 days). Add automatic refresh (`GET /refresh_access_token`) in one app and copy the token to the other, or set a calendar reminder.
 - **Meta App Review** (Advanced Access) so everyone, not just testers, gets DMs. Until then, add the client's own Instagram account as a tester if they want to try it.
 - **Per-client deploy for a paying client:** their own Instagram account and Meta webhook, their own domain (DNS A record → `add-site.sh … --host`), `DM_LINK_BASE` empty.
