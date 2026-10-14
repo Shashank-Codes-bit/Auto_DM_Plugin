@@ -1,0 +1,13 @@
+# One copy per client (see DEPLOY.md). CLIENT (the Docker project name) and PORT come from deploy/.env.
+name: ${CLIENT:-autodm}
+services:
+  web:
+    build: { context: .. }
+    restart: unless-stopped            # comes back after crashes and VM reboots
+    env_file: .env                     # secrets, on the server only
+    environment:
+      PORT: "${PORT:-8110}"
+      DATA_DIR: /data/pgdata
+    ports: ["127.0.0.1:${PORT:-8110}:${PORT:-8110}"]   # localhost only; the reverse proxy is the way in
+    volumes: ["data:/data"]            # the database and copied product photos
+volumes: { data: {} }
